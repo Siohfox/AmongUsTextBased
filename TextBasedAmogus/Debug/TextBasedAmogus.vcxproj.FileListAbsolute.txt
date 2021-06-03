@@ -1,0 +1,2 @@
+C:\Users\Macaw\source\repos\TextBasedAmogus\Debug\TextBasedAmogus.exe.lastcodeanalysissucceeded
+C:\Users\Macaw\source\repos\TextBasedAmogus\TextBasedAmogus\Debug\NativeCodeAnalysis.read.1.tlog

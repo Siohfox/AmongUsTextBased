@@ -11,7 +11,7 @@ public:
 			m_tasks[i] = i;
 		}
 		this->m_colour = _colour;
-		this->aliveState = true;
+		this->m_aliveState = true;
 	}
 
 	~Crewmate()

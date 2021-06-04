@@ -7,9 +7,9 @@ void Game::Initialize(int _playerCount)
 
 	for (int i = 0; i < _playerCount; i++)
 	{
-		Crewmate* crewmate = new Crewmate("Red" + std::to_string(i));
+		Crewmate* crewmate = new Crewmate(m_colourList[i]);
 		crewmates.push_back(crewmate);
-		std::cout << crewmates[i]->GetColour();
+		std::cout << "Initialized crewmate: " << crewmates[i]->GetColour() << std::endl;
 	}
 	 
 

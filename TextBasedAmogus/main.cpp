@@ -6,7 +6,7 @@ int main(int argc, char* argv[])
 {
 	SDL_Renderer* renderer;
 
-	SDLManager SDL(1920, 1080);
+	SDLManager SDL(800, 800);
 
 	renderer = SDL.SDLInit();
 

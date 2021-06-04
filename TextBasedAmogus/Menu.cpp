@@ -19,7 +19,11 @@ void Menu::PollEvents()
 
 void Menu::Run()
 {
+	int playerCount = 10;
+
 	Game* game = new Game();
+
+	game->Initialize(playerCount);
 
 	game->Gameloop();
 

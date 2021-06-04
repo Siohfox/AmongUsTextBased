@@ -44,13 +44,13 @@
     <ClInclude Include="Menu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Crewmates.h">
-      <Filter>Header Files\Player Types</Filter>
-    </ClInclude>
     <ClInclude Include="Players.h">
       <Filter>Header Files\Player Types</Filter>
     </ClInclude>
-    <ClInclude Include="Imposters.h">
+    <ClInclude Include="Imposter.h">
+      <Filter>Header Files\Player Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Crewmate.h">
       <Filter>Header Files\Player Types</Filter>
     </ClInclude>
   </ItemGroup>

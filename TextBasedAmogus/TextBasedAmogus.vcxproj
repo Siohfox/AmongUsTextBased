@@ -146,9 +146,9 @@
     <ClCompile Include="Menu.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Crewmates.h" />
+    <ClInclude Include="Crewmate.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="Imposters.h" />
+    <ClInclude Include="Imposter.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Players.h" />
   </ItemGroup>

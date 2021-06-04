@@ -36,6 +36,9 @@
     <ClCompile Include="Imposters.cpp">
       <Filter>Source Files\Player Types</Filter>
     </ClCompile>
+    <ClCompile Include="SDLManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -52,6 +55,9 @@
     </ClInclude>
     <ClInclude Include="Crewmate.h">
       <Filter>Header Files\Player Types</Filter>
+    </ClInclude>
+    <ClInclude Include="SDLManager.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

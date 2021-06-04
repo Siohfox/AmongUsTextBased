@@ -1,5 +1,12 @@
 #pragma once
-class Crewmates
+#include "Players.h"
+
+class Crewmates : public Players
 {
+public:
+
+
+private:
+	int m_tasks[8];
 };
 

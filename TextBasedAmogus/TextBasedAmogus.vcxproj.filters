@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Player Types">
+      <UniqueIdentifier>{81f009d2-56d4-402c-b55f-98bb1d452019}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Player Types">
+      <UniqueIdentifier>{2f7fcd72-5563-475c-a71e-f93d3e616474}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -25,16 +31,13 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Crewmates.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Player Types</Filter>
     </ClCompile>
     <ClCompile Include="Imposters.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Player Types</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Players.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -42,10 +45,13 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Crewmates.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Player Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Players.h">
+      <Filter>Header Files\Player Types</Filter>
     </ClInclude>
     <ClInclude Include="Imposters.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Player Types</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

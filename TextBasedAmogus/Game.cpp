@@ -1,6 +1,5 @@
 #include "Game.h"
 
-
 void Game::Initialize(int _playerCount)
 {
 	m_playerCount = _playerCount;

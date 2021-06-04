@@ -1,6 +1,6 @@
 #include "Menu.h"
 #include "Game.h"
-
+#include <sstream>
 void Menu::MenuLoop()
 {
 	while (menuActive)
@@ -55,8 +55,31 @@ void Menu::Run()
 	/// This will be passed into the initialization of the game
 	/// </summary>
 	int playerCount;
+
+	std::string input = "";
+
 	std::cout << "Enter player amount:" << std::endl;
-	std::cin >> playerCount;
+
+	// The loop waits for them to enter a correct integer between 4 and 10 (min and max players)
+	while (true) 
+	{
+		std::cout << "Please enter a valid number: ";
+		std::getline(std::cin, input);
+
+		// This code converts from string to number safely.
+		std::stringstream myStream(input);
+		if (myStream >> playerCount)
+		{ 
+			if (playerCount <= 10)
+			{
+				if (playerCount >= 4)
+				{
+					break;
+				}
+			}
+		}
+		std::cout << "Invalid number, please try again" << std::endl;
+	}
 
 	// Create instance of the game
 	Game* game = new Game();

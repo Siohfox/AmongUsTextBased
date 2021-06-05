@@ -7,15 +7,15 @@
 class SDLManager
 {
 public:
-	SDLManager(int windowSizeX, int windowSizeY);
+	SDLManager(int windowWidth, int windowHeight);
 	~SDLManager();
 
 	SDL_Renderer* SDLInit();
 
 protected:
 	// Set up stuff needed for SDL and create pointer to menu class
-	int m_windowSizeX;
-	int m_windowSizeY;
+	int m_windowWidth;
+	int m_windowHeight;
 	SDL_Window* m_window;
 	SDL_Renderer* m_renderer;
 };

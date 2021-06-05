@@ -7,8 +7,11 @@ int main(int argc, char* argv[])
 	// Create local renderer
 	SDL_Renderer* renderer;
 
+	// Create local window size
+	int windowWidth = 800, windowHeight = 800;
+
 	// Create object instance of SDL manager, passing in screen size
-	SDLManager SDL(800, 800);
+	SDLManager SDL(windowWidth, windowHeight);
 
 	// Return SDLInit's renderer to the local one here
 	// SDL init will also set up all of the other SDL related components

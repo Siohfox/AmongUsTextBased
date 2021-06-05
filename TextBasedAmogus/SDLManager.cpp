@@ -2,10 +2,10 @@
 #include <iostream>
 
 // Constrtuctor 
-SDLManager::SDLManager(int windowSizeX, int windowSizeY)
+SDLManager::SDLManager(int windowWidth, int windowHeight)
 {
-    this->m_windowSizeX = windowSizeX;
-    this->m_windowSizeY = windowSizeY;
+    this->m_windowWidth = windowWidth;
+    this->m_windowHeight = windowHeight;
     m_renderer = nullptr;
     m_window = nullptr;
 }
@@ -35,7 +35,7 @@ SDL_Renderer* SDLManager::SDLInit()
     }
 
     // Create Window
-    m_window = SDL_CreateWindow("Asteroid Shooter Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, m_windowSizeX, m_windowSizeY, SDL_WINDOW_SHOWN);
+    m_window = SDL_CreateWindow("Asteroid Shooter Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, m_windowWidth, m_windowHeight, SDL_WINDOW_SHOWN);
 
     if (m_window == nullptr)
     {

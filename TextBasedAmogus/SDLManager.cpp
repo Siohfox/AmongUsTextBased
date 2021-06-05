@@ -35,7 +35,7 @@ SDL_Renderer* SDLManager::SDLInit()
     }
 
     // Create Window
-    m_window = SDL_CreateWindow("Asteroid Shooter Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, m_windowWidth, m_windowHeight, SDL_WINDOW_SHOWN);
+    m_window = SDL_CreateWindow("Asteroid Shooter Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, m_windowWidth, m_windowHeight, SDL_WINDOW_RESIZABLE);
 
     if (m_window == nullptr)
     {

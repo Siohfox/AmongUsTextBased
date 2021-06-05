@@ -24,6 +24,7 @@
     <ProjectGuid>{0e1d52ff-02b3-4152-b36d-7098af3b3e16}</ProjectGuid>
     <RootNamespace>TextBasedAmogus</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>TextBasedAmongUs</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -71,8 +72,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\Macaw\source\repos\TextBasedAmogus\AmongUsTextBased\SDKs\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Macaw\source\repos\TextBasedAmogus\AmongUsTextBased\SDKs\Lib86;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\SDKs\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\SDKs\Lib86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

@@ -14,7 +14,7 @@ public:
 		menuActive = true;
 
 		// Create the background
-		m_backgroundRect = { 0,0,1920,1080 };
+		m_backgroundRect = { 0,0,800,800 };
 		m_backgroundImage = SDL_LoadBMP("Images/spacebackground.bmp");
 		if (!m_backgroundImage)
 		{

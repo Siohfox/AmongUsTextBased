@@ -1,16 +1,112 @@
 #include "Game.h"
+#include "SDL/SDL.h"
 
 void Game::Initialize(int _playerCount)
 {
+	srand(static_cast<unsigned int>(time(0)));
 	m_playerCount = _playerCount;
 
+	int randomLocationChooser = 0;
+	InitLocation(randomLocationChooser);
+
+	// Initialize each player as a crewmate, using passed in player count
 	for (int i = 0; i < _playerCount; i++)
 	{
 		Crewmate* crewmate = new Crewmate(m_colourList[i]);
-		crewmates.push_back(crewmate);
-		std::cout << "Initialized crewmate: " << crewmates[i]->GetColour() << std::endl;
+		m_crewmates.push_back(crewmate);
+		m_crewmates[i]->setTasks(m_locationTasks);
+		std::cout << "Initialized crewmate: " << m_crewmates[i]->GetColour() << std::endl;
 	}
-	 
+
+	int playerSelector = rand() % _playerCount;
+	m_crewmates[playerSelector]->SetPlayerState(true);
+	
+	// Determine how many imposters to make depending on player count
+	// More than 5 crewmates, two imposters needed
+	// Less than 6 crewmates, only one imposter needed
+	if (m_playerCount < 6)
+	{
+		// Less than 6 crewmates, only one imposter needed
+
+		// Get a random crewmate and turn it into an imposter
+		int imposterSelector = rand() % m_crewmates.size();
+
+		// Initialize random imposter as a new imposter using the crewmates colour and stuff
+		Imposter* imposter = new Imposter(m_crewmates[imposterSelector]->GetColour(), m_crewmates[imposterSelector]->GetPlayerState());
+
+
+		// Add imposter to imposter vector
+		m_imposters.push_back(imposter);
+
+
+		if (m_crewmates[imposterSelector]->GetPlayerState() == true)
+		{
+			//std::cout << m_crewmates[imposterSelector]->GetColour() << " IS THE IMPOSTERY BOI" << std::endl;
+		}
+
+		// remove the imposter from crewmates
+		delete m_crewmates[imposterSelector];
+		m_crewmates[imposterSelector] = nullptr;
+		m_crewmates.erase(std::remove(m_crewmates.begin(), m_crewmates.end(), nullptr), m_crewmates.end());
+
+	}
+	else
+	{
+		// Get two random crewmate and turn them into an imposters
+
+		for (size_t i = 0; i < 2; i++)
+		{
+			int imposterSelector = rand() % m_crewmates.size();
+
+			// Initialize random imposter as a new imposter using the crewmates colour and stuff
+			Imposter* imposter = new Imposter(m_crewmates[imposterSelector]->GetColour(), m_crewmates[imposterSelector]->GetPlayerState());
+
+			if (m_crewmates[imposterSelector]->GetPlayerState() == true)
+			{
+				std::cout << m_crewmates[imposterSelector]->GetColour() << " IS THE IMPOSTERY BOI" << std::endl;
+			}
+
+			// Add imposter to imposter vector
+			m_imposters.push_back(imposter);
+
+			// remove the imposter from crewmates
+			delete m_crewmates[imposterSelector];
+			m_crewmates[imposterSelector] = nullptr;
+			m_crewmates.erase(std::remove(m_crewmates.begin(), m_crewmates.end(), nullptr), m_crewmates.end());			
+		}
+	}
+
+	// Finally list all crewmates and imposters for debugging purposes
+	std::cout << std::endl;
+	std::cout << "Players: " << m_playerCount << std::endl;
+
+	std::cout << "Crewmates: \n" << std::endl;
+	for (size_t i = 0; i < m_crewmates.size(); i++)
+	{
+		std::cout << "Crewmate " << std::to_string(i) << ": " << m_crewmates[i]->GetColour() << std::endl;
+	}
+
+	std::cout << std::endl;
+
+	std::cout << "Imposters: \n" << std::endl;
+	for (size_t i = 0; i < m_imposters.size(); i++)
+	{
+		std::cout << "Imposter " << std::to_string(i) << ": " << m_imposters[i]->GetColour() << std::endl;
+	}
+
+	// Debug for showing tasks of crewmate 0
+	std::cout << "\n" << "Crewmate " << m_crewmates[0]->GetColour() << "'s tasks are: " << "\n";
+	for (size_t i = 0; i < m_crewmates[0]->getTaskList().size(); i++)
+	{
+		std::cout << m_crewmates[0]->getTask(i) << std::endl;
+	}
+	
+	m_crewmates[0]->getTaskList().at(0)->setTaskStatus(false);
+
+	std::cout << "Task " << m_crewmates[0]->getTask(0) << " is " << std::to_string(m_crewmates[0]->getTaskList().at(0)->getTaskStatus()) << std::endl;
+
+	// Start game when initializing is done
+	Gameloop();
 
 	return;
 }
@@ -21,15 +117,98 @@ void Game::Gameloop()
 	{
 		PollEvents();
 		Update();
+		Render();
 	}
 }
 
 void Game::PollEvents()
 {
-	
+	// Create var for event
+	SDL_Event event;
+
+	// while there is an event happening like a key press, do this:
+	while (SDL_PollEvent(&event))
+	{
+		// If the event is quit, then running is false and it back to menu.
+		if (event.type == SDL_QUIT)
+		{
+			m_running = false;
+		}
+	}
 }
 
 void Game::Update()
 {
-	
+	for (size_t i = 0; i < m_crewmates.size(); i++)
+	{
+		m_crewmates[i]->Update();
+	}
+
+	for (size_t i = 0; i < m_imposters.size(); i++)
+	{
+		m_imposters[i]->Update();
+	}
+
+	//std::cout << m_locations[0]->getLocationName();
+}
+
+void Game::Render()
+{
+
+}
+
+void Game::InitLocation(int location_identifier)
+{
+	int locationTaskIdentifier;
+
+	if (location_identifier == 0)
+	{
+		// init location's tasks
+		locationTaskIdentifier = 0;
+
+		InitLocationTasks(locationTaskIdentifier);
+
+
+		Location Cafeteria("Cafeteria", m_locationTasks);
+	}
+}
+
+void Game::InitLocationTasks(int location_task_indentifier)
+{
+
+	if (location_task_indentifier == 0)
+	{
+		// Init tasks
+		Task* ClearAsteroids = new Task("Clear Asteroids");
+		Task* Empty_Chute = new Task("Empty Chute");
+		Task* Fix_Wires = new Task("Fix Wires");
+		Task* Chart_Course = new Task("Chart Course");
+		Task* Clean_Oxygen = new Task("Clean Oxygen");
+		Task* Empty_Garbage = new Task("Empty Garbage");
+		Task* Swipe_Card = new Task("Swipe Card");
+		Task* Med_Scan = new Task("Submit Medbay Scan");
+		Task* Enter_Code = new Task("Enter Code");
+		Task* Download = new Task("Download Data");
+		Task* Upload = new Task("Upload Data");
+
+		// Emergencies
+		EmergencyTask* TNT_Warn = new EmergencyTask("TNT Warning");
+		EmergencyTask* O2_Leak = new EmergencyTask("O2 Leak");
+
+
+		m_locationTasks.push_back(ClearAsteroids);
+		m_locationTasks.push_back(Empty_Chute);
+		m_locationTasks.push_back(Fix_Wires);
+		m_locationTasks.push_back(Chart_Course);
+		m_locationTasks.push_back(Clean_Oxygen);
+		m_locationTasks.push_back(Empty_Garbage);
+		m_locationTasks.push_back(Swipe_Card);
+		m_locationTasks.push_back(Med_Scan);
+		m_locationTasks.push_back(Enter_Code);
+		m_locationTasks.push_back(Download);
+		m_locationTasks.push_back(Upload);
+
+		m_locationEmergencyTasks.push_back(TNT_Warn);
+		m_locationEmergencyTasks.push_back(O2_Leak);
+	}
 }

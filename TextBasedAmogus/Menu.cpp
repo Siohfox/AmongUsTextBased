@@ -3,6 +3,8 @@
 #include <sstream>
 void Menu::MenuLoop()
 {
+	std::cout << "Press R to run" << std::endl;
+
 	while (menuActive)
 	{
 		PollEvents();
@@ -27,6 +29,8 @@ void Menu::PollEvents()
 			if ((keyboard_state_array[SDL_SCANCODE_R]))
 			{
 				Run();
+
+				std::cout << "Returned to menu!" << std::endl;
 			}
 		}
 	}
@@ -58,12 +62,10 @@ void Menu::Run()
 
 	std::string input = "";
 
-	std::cout << "Enter player amount:" << std::endl;
-
 	// The loop waits for them to enter a correct integer between 4 and 10 (min and max players)
 	while (true) 
 	{
-		std::cout << "Please enter a valid number: ";
+		std::cout << "Enter player amount: ";
 		std::getline(std::cin, input);
 
 		// This code converts from string to number safely.

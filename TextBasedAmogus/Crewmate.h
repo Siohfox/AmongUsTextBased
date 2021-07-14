@@ -1,27 +1,35 @@
 #pragma once
 #include "Players.h"
+#include "Task.h"
+#include <vector>
+
 
 class Crewmate : public Players
 {
 public:
 	Crewmate(std::string _colour)
 	{
-		for (int i = 0; i < 8; i++)
-		{
-			m_tasks[i] = i;
-		}
 		this->m_colour = _colour;
 		this->m_aliveState = true;
+		this->m_player = false;
+		// 0 means crewmate
+		this->m_playerType = 0;
 	}
 
 	~Crewmate()
 	{
 
 	}
-	
-	inline std::string& GetColour() { return m_colour; }
+
+	void setTasks(std::vector<Task*> taskVector) { crewmateTasks = taskVector; }
+
+	std::vector<Task*> getTaskList() { return crewmateTasks; }
+
+	std::string getTask(int taskNumber) { return crewmateTasks[taskNumber]->getTaskName(); }
+
+	void Update() override;
 
 private:
-	int m_tasks[8];
+	std::vector<Task*> crewmateTasks;
 };
 

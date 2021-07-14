@@ -2,8 +2,12 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <time.h>
 #include "Crewmate.h"
 #include "Imposter.h"
+#include "Task.h"
+#include "EmergencyTask.h"
+#include "Location.h"
 
 class Game
 {
@@ -33,6 +37,13 @@ public:
 	void Gameloop();
 	void PollEvents();
 	void Update();
+	void Render();
+
+	void InitLocation(int location_identifier);
+
+	void InitLocationTasks(int location_task_indentifier);
+
+
 
 	inline std::string const& GetColour(int colourNumber) { return m_colourList[colourNumber]; }
 
@@ -47,10 +58,15 @@ private:
 	/// </summary>
 	int m_playerCount;
 
-
-	std::vector<Crewmate*> crewmates;
+	// a vector for storing crewmates
+	std::vector<Crewmate*> m_crewmates;
+	std::vector<Imposter*> m_imposters;
 
 	//This is the range of colours that can be picked from
 	std::string m_colourList[10];
+
+	std::vector<Task*> m_locationTasks;
+	std::vector<Task*> m_locationEmergencyTasks;
+
 };
 

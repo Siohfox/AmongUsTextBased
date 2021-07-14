@@ -1,0 +1,27 @@
+﻿main.obj : error LNK2019: unresolved external symbol SDL_RWFromFile referenced in function "public: __cdecl Menu::Menu(struct SDL_Renderer *)" (??0Menu@@QEAA@PEAUSDL_Renderer@@@Z)
+main.obj : error LNK2019: unresolved external symbol SDL_FreeSurface referenced in function "public: __cdecl Menu::Menu(struct SDL_Renderer *)" (??0Menu@@QEAA@PEAUSDL_Renderer@@@Z)
+main.obj : error LNK2019: unresolved external symbol SDL_LoadBMP_RW referenced in function "public: __cdecl Menu::Menu(struct SDL_Renderer *)" (??0Menu@@QEAA@PEAUSDL_Renderer@@@Z)
+main.obj : error LNK2019: unresolved external symbol SDL_CreateTextureFromSurface referenced in function "public: __cdecl Menu::Menu(struct SDL_Renderer *)" (??0Menu@@QEAA@PEAUSDL_Renderer@@@Z)
+main.obj : error LNK2019: unresolved external symbol SDL_DestroyTexture referenced in function "public: __cdecl Menu::~Menu(void)" (??1Menu@@QEAA@XZ)
+Menu.obj : error LNK2019: unresolved external symbol SDL_GetKeyboardState referenced in function "public: void __cdecl Menu::PollEvents(void)" (?PollEvents@Menu@@QEAAXXZ)
+Menu.obj : error LNK2019: unresolved external symbol SDL_PollEvent referenced in function "public: void __cdecl Menu::PollEvents(void)" (?PollEvents@Menu@@QEAAXXZ)
+Menu.obj : error LNK2019: unresolved external symbol SDL_SetRenderDrawColor referenced in function "public: void __cdecl Menu::Render(void)" (?Render@Menu@@QEAAXXZ)
+Menu.obj : error LNK2019: unresolved external symbol SDL_RenderClear referenced in function "public: void __cdecl Menu::Render(void)" (?Render@Menu@@QEAAXXZ)
+Menu.obj : error LNK2019: unresolved external symbol SDL_RenderCopyEx referenced in function "public: void __cdecl Menu::Render(void)" (?Render@Menu@@QEAAXXZ)
+Menu.obj : error LNK2019: unresolved external symbol SDL_RenderPresent referenced in function "public: void __cdecl Menu::Render(void)" (?Render@Menu@@QEAAXXZ)
+SDLManager.obj : error LNK2019: unresolved external symbol SDL_GetError referenced in function "public: struct SDL_Renderer * __cdecl SDLManager::SDLInit(void)" (?SDLInit@SDLManager@@QEAAPEAUSDL_Renderer@@XZ)
+SDLManager.obj : error LNK2019: unresolved external symbol SDL_CreateWindow referenced in function "public: struct SDL_Renderer * __cdecl SDLManager::SDLInit(void)" (?SDLInit@SDLManager@@QEAAPEAUSDL_Renderer@@XZ)
+SDLManager.obj : error LNK2019: unresolved external symbol SDL_DestroyWindow referenced in function "public: __cdecl SDLManager::~SDLManager(void)" (??1SDLManager@@QEAA@XZ)
+SDLManager.obj : error LNK2019: unresolved external symbol SDL_Log referenced in function "public: struct SDL_Renderer * __cdecl SDLManager::SDLInit(void)" (?SDLInit@SDLManager@@QEAAPEAUSDL_Renderer@@XZ)
+SDLManager.obj : error LNK2019: unresolved external symbol SDL_CreateRenderer referenced in function "public: struct SDL_Renderer * __cdecl SDLManager::SDLInit(void)" (?SDLInit@SDLManager@@QEAAPEAUSDL_Renderer@@XZ)
+SDLManager.obj : error LNK2019: unresolved external symbol SDL_DestroyRenderer referenced in function "public: __cdecl SDLManager::~SDLManager(void)" (??1SDLManager@@QEAA@XZ)
+SDLManager.obj : error LNK2019: unresolved external symbol SDL_Init referenced in function "public: struct SDL_Renderer * __cdecl SDLManager::SDLInit(void)" (?SDLInit@SDLManager@@QEAAPEAUSDL_Renderer@@XZ)
+SDLManager.obj : error LNK2019: unresolved external symbol SDL_Quit referenced in function "public: __cdecl SDLManager::~SDLManager(void)" (??1SDLManager@@QEAA@XZ)
+SDLManager.obj : error LNK2019: unresolved external symbol TTF_Init referenced in function "public: struct SDL_Renderer * __cdecl SDLManager::SDLInit(void)" (?SDLInit@SDLManager@@QEAAPEAUSDL_Renderer@@XZ)
+MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+..\SDKs\Lib86\SDL2.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+..\SDKs\Lib86\SDL2main.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+..\SDKs\Lib86\SDL2_image.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+..\SDKs\Lib86\SDL2_mixer.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+..\SDKs\Lib86\SDL2_ttf.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Users\Macaw\source\repos\TextBasedAmongUs\AmongUsTextBased\x64\Debug\TextBasedAmongUs.exe : fatal error LNK1120: 21 unresolved externals

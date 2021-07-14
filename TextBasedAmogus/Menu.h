@@ -14,8 +14,8 @@ public:
 		menuActive = true;
 
 		// Create the background
-		m_backgroundRect = { 0,0,800,800 };
-		m_backgroundImage = SDL_LoadBMP("Images/spacebackground.bmp");
+		m_backgroundRect = { 0,0,845,464 };
+		m_backgroundImage = SDL_LoadBMP("Images/amogusmaplabled.bmp");
 		if (!m_backgroundImage)
 		{
 			throw std::exception();

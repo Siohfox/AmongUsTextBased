@@ -175,27 +175,26 @@ void Game::InitLocation(int location_identifier)
 
 void Game::InitLocationTasks(int location_task_indentifier)
 {
-
 	if (location_task_indentifier == 0)
 	{
 		// Init tasks
-		Task* ClearAsteroids = new Task("Clear Asteroids");
-		Task* Empty_Chute = new Task("Empty Chute");
-		Task* Fix_Wires = new Task("Fix Wires");
-		Task* Chart_Course = new Task("Chart Course");
-		Task* Clean_Oxygen = new Task("Clean Oxygen");
-		Task* Empty_Garbage = new Task("Empty Garbage");
-		Task* Swipe_Card = new Task("Swipe Card");
-		Task* Med_Scan = new Task("Submit Medbay Scan");
-		Task* Enter_Code = new Task("Enter Code");
-		Task* Download = new Task("Download Data");
-		Task* Upload = new Task("Upload Data");
+		Task* ClearAsteroids = new Task("Clear Asteroids", 1);
+		Task* Empty_Chute = new Task("Empty Chute", 2);
+		Task* Fix_Wires = new Task("Fix Wires", 3);
+		Task* Chart_Course = new Task("Chart Course", 1);
+		Task* Clean_Oxygen = new Task("Clean Oxygen", 1);
+		Task* Empty_Garbage = new Task("Empty Garbage", 2);
+		Task* Swipe_Card = new Task("Swipe Card", 1);
+		Task* Med_Scan = new Task("Submit Medbay Scan", 1);
+		Task* Enter_Code = new Task("Enter Code", 1);
+		Task* Download = new Task("Download Data", 1);
+		Task* Upload = new Task("Upload Data", 1);
 
 		// Emergencies
-		EmergencyTask* TNT_Warn = new EmergencyTask("TNT Warning");
-		EmergencyTask* O2_Leak = new EmergencyTask("O2 Leak");
+		EmergencyTask* TNT_Warn = new EmergencyTask("TNT Warning", 1);
+		EmergencyTask* O2_Leak = new EmergencyTask("O2 Leak", 2);
 
-
+		// Add tasks to vector array
 		m_locationTasks.push_back(ClearAsteroids);
 		m_locationTasks.push_back(Empty_Chute);
 		m_locationTasks.push_back(Fix_Wires);
@@ -208,6 +207,7 @@ void Game::InitLocationTasks(int location_task_indentifier)
 		m_locationTasks.push_back(Download);
 		m_locationTasks.push_back(Upload);
 
+		// Add emergency tasks to vector array
 		m_locationEmergencyTasks.push_back(TNT_Warn);
 		m_locationEmergencyTasks.push_back(O2_Leak);
 	}

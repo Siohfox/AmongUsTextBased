@@ -10,12 +10,15 @@ public:
 	{
 		m_taskName = "null";
 		m_taskComplete = false;
+		m_taskParts = 1;
+
 	}
 
-	Task(std::string taskName)
+	Task(std::string taskName, int taskParts)
 	{
 		m_taskName = taskName;
 		m_taskComplete = false;
+		m_taskParts = taskParts;
 	}
 
 	~Task()
@@ -33,6 +36,7 @@ public:
 
 protected:
 	std::string m_taskName;
+	int m_taskParts;
 	bool m_taskComplete;
 };
 

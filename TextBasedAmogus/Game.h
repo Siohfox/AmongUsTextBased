@@ -39,9 +39,8 @@ public:
 	void Update();
 	void Render();
 
-	void InitLocation(int location_identifier);
-
-	void InitLocationTasks(int location_task_indentifier);
+	void InitLocations();
+	void InitTasks();
 
 
 
@@ -65,8 +64,10 @@ private:
 	//This is the range of colours that can be picked from
 	std::string m_colourList[10];
 
-	std::vector<Task*> m_locationTasks;
-	std::vector<Task*> m_locationEmergencyTasks;
+	std::vector<Location*> m_locations;
+
+	std::vector<Task*> m_tasks;
+	std::vector<Task*> m_emergencyTasks;
 
 };
 

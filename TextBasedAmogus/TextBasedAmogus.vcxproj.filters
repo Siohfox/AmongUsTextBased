@@ -19,6 +19,12 @@
     <Filter Include="Source Files\Player Types">
       <UniqueIdentifier>{2f7fcd72-5563-475c-a71e-f93d3e616474}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Task Related">
+      <UniqueIdentifier>{99be71c4-3692-4203-8dba-672891634865}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Task Related">
+      <UniqueIdentifier>{1f48fc30-d790-4ee3-9c5e-3d71b93128ac}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -43,13 +49,13 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Location.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Task.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Task Related</Filter>
     </ClCompile>
     <ClCompile Include="EmergencyTask.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Task Related</Filter>
+    </ClCompile>
+    <ClCompile Include="Task.cpp">
+      <Filter>Source Files\Task Related</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -74,14 +80,14 @@
     <ClInclude Include="Time.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EmergencyTask.h">
+      <Filter>Header Files\Task Related</Filter>
+    </ClInclude>
     <ClInclude Include="Location.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Task Related</Filter>
     </ClInclude>
     <ClInclude Include="Task.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EmergencyTask.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Task Related</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

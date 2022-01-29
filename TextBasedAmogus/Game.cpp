@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "SDL/SDL.h"
+#include <iterator>
 
 void Game::Initialize(int _playerCount)
 {
@@ -15,10 +16,12 @@ void Game::Initialize(int _playerCount)
 	{
 		Crewmate* crewmate = new Crewmate(m_colourList[i]);
 		m_crewmates.push_back(crewmate);
+
 		m_crewmates[i]->setTasks(m_tasks);
 		std::cout << "Initialized crewmate: " << m_crewmates[i]->GetColour() << std::endl;
 	}
 
+	// Select a random crewmate to become the 'player'
 	int playerSelector = rand() % _playerCount;
 	m_crewmates[playerSelector]->SetPlayerState(true);
 	
@@ -101,14 +104,19 @@ void Game::Initialize(int _playerCount)
 	{
 		std::cout << m_crewmates[0]->getTask(i) << std::endl;
 	}
+
+	std::cout << "\n" << std::endl;
+
+	m_crewmates[0]->getTaskList().at(0)->setTaskStatus(true);
+	m_crewmates[1]->getTaskList().at(0)->setTaskStatus(false);
+
+	std::cout << "Crewmate " << m_crewmates[0]->GetColour() << "'s Task " << m_crewmates[0]->getTask(0) << " is " << std::to_string(m_crewmates[0]->getTaskList().at(0)->getTaskStatus()) << std::endl;
+	std::cout << "Crewmate " << m_crewmates[0]->GetColour() << "'s Task " << m_crewmates[0]->getTask(0) << " is located at " << m_crewmates[0]->getTaskList().at(0)->getTaskLocation() << std::endl;
+
+	std::cout << "\n\n\n" << std::endl;
 	
-
-	m_crewmates[0]->getTaskList().at(0)->setTaskStatus(false);
-
-	std::cout << "Task " << m_crewmates[0]->getTask(0) << " is " << std::to_string(m_crewmates[0]->getTaskList().at(0)->getTaskStatus()) << std::endl;
-
-	// output task name with get task, output task location using the task's location in the task array, and the get task location func
-	std::cout << "Task " << m_crewmates[0]->getTask(0) << " is located at " << m_crewmates[0]->getTaskList().at(0)->getTaskLocation() << std::endl;
+	std::cout << "Crewmate " << m_crewmates[1]->GetColour() << "'s Task " << m_crewmates[1]->getTask(0) << " is " << std::to_string(m_crewmates[1]->getTaskList().at(0)->getTaskStatus()) << std::endl;
+	std::cout << "Crewmate " << m_crewmates[1]->GetColour() << "'s Task " << m_crewmates[1]->getTask(0) << " is located at " << m_crewmates[1]->getTaskList().at(0)->getTaskLocation() << std::endl;
 
 	// Start game when initializing is done
 	Gameloop();

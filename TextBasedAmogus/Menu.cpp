@@ -72,12 +72,9 @@ void Menu::Run()
 		std::stringstream myStream(input);
 		if (myStream >> playerCount)
 		{ 
-			if (playerCount <= 10)
+			if (playerCount <= 10 && playerCount >= 4)
 			{
-				if (playerCount >= 4)
-				{
-					break;
-				}
+				break;
 			}
 		}
 		std::cout << "Invalid number, please try again" << std::endl;
